@@ -56,6 +56,8 @@ const ListaTelefonica = () => {
               titulo={t.titulo}
               prioridade={t.prioridade}
               status={t.status}
+              email={t.email}
+              number={t.number}
             />
           </li>
         ))}

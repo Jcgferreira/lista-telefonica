@@ -14,16 +14,23 @@ const Form = () => {
 
   const [titulo, setTitulo] = useState('')
   const [descricao, setDescricao] = useState('')
+  const [number, setNumber] = useState('')
+  const [email, setEmail] = useState('')
   const [prioridade, setPrioridade] = useState(enums.Prioridade.NORMAL)
 
   const cadastrarTarefa = (evento: FormEvent) => {
     evento.preventDefault()
+    if (!titulo || !prioridade || !descricao || !number || email) {
+      return alert('Preencha todos os campos corretamente')
+    }
     dispatch(
       cadastrar({
         titulo,
         prioridade,
         descricao,
-        status: enums.Status.PENDENTE
+        status: enums.Status.PENDENTE,
+        number: Number(number),
+        email
       })
     )
     navigate('/')
@@ -37,13 +44,25 @@ const Form = () => {
           value={titulo}
           onChange={(evento) => setTitulo(evento.target.value)}
           type="text"
-          placeholder="Nome do contato"
+          placeholder="Nome do morador"
+        />
+        <Input
+          value={number}
+          onChange={(evento) => setNumber(evento.target.value)}
+          type="text"
+          placeholder="Numero do morador"
+        />
+        <Input
+          value={email}
+          onChange={(evento) => setEmail(evento.target.value)}
+          type="text"
+          placeholder="Email do morado"
         />
         <Input
           value={descricao}
           onChange={(evento) => setDescricao(evento.target.value)}
           as="textarea"
-          placeholder="Numero de contato e descrição da casa"
+          placeholder="Descrição da casa"
         />
         <Opcoes>
           <p>Prioridade</p>

@@ -13,7 +13,9 @@ const initialState: TarefaState = {
       titulo: 'Marcos Freitas',
       descricao: '(53) 279999999, Casa N 222',
       prioridade: enums.Prioridade.IMPORTANTE,
-      status: enums.Status.PENDENTE
+      status: enums.Status.PENDENTE,
+      number: 53999078299,
+      email: 'marcosfreitas@email.com'
     }
   ]
 }

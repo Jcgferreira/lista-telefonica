@@ -15,7 +15,9 @@ export const Tarefa = ({
   prioridade,
   status,
   titulo,
-  id
+  id,
+  number,
+  email
 }: Props) => {
   const dispatch = useDispatch()
   const [editing, setEditing] = useState(false)
@@ -55,6 +57,12 @@ export const Tarefa = ({
           {titulo}
         </S.Titulo>
       </label>
+      <label htmlFor={titulo}>
+        <S.Titulo>{email}</S.Titulo>
+      </label>
+      <label htmlFor={titulo}>
+        <S.Titulo>{number}</S.Titulo>
+      </label>
       <S.Tag parametro="prioridade" prioridade={prioridade}>
         {prioridade}
       </S.Tag>
@@ -77,7 +85,9 @@ export const Tarefa = ({
                     prioridade,
                     status,
                     titulo,
-                    id
+                    id,
+                    number,
+                    email
                   })
                 )
                 setEditing(false)
